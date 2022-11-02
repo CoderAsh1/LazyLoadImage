@@ -5,11 +5,11 @@
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
 }
+
 .App {
   display: flex;
   flex-direction: column;
   padding: 2.5rem 2rem;
-  gap: 3rem;
 }
 .wrapper {
   display: flex;
@@ -22,6 +22,7 @@ header {
   justify-content: space-between;
   padding: 0 2.2rem;
   align-items: center;
+  margin-bottom: 3rem;
 }
 img {
   height: 30rem;
@@ -38,7 +39,7 @@ img {
   border: 1px solid gray;
   background: rgb(231, 228, 228);
 }
-button {
+#lazy {
   height: 2.4rem;
   font-size: 1rem;
   cursor: pointer;

@@ -39,7 +39,7 @@ const LazyLoad = () => {
     <div>
       <header>
         <Link to="/">
-          <button>Back</button>
+          <button id="back">Back</button>
         </Link>
         <input
           type="text"

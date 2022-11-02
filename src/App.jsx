@@ -52,7 +52,7 @@ function App() {
                   autoFocus={true}
                 />
                 <Link to="/lazy">
-                  <button>LazyLoad</button>
+                  <button id="lazy">LazyLoad</button>
                 </Link>
               </header>
 
