@@ -16,7 +16,7 @@ const LazyLoad = () => {
       ? setQuery("dogs")
       : setTimeout(() => {
           setQuery(e.target.value);
-        }, 2000);
+        }, 1200);
     console.log(query);
   }
 
