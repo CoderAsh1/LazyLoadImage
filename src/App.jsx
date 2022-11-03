@@ -1,9 +1,9 @@
 import "./App.css";
 import fetchData from "./fetchData";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Pagination from "./Components/pagination/Pagination";
 import { Routes, Route, Link } from "react-router-dom";
-import LazyLoad from "./Components/lazyload/LazyLoad";
+const LazyLoad = React.lazy(() => import("./Components/lazyload/LazyLoad"));
 
 function App() {
   const [data, setData] = useState([]);
@@ -52,7 +52,7 @@ function App() {
                   autoFocus={true}
                 />
                 <Link to="/lazy">
-                  <button id="lazy">LazyLoad</button>
+                  <button id="lazy">LazyLoad on Scroll</button>
                 </Link>
               </header>
 
@@ -74,7 +74,15 @@ function App() {
             </>
           }
         />
-        <Route exact path="/lazy" element={<LazyLoad />} />
+        <Route
+          exact
+          path="/lazy"
+          element={
+            <Suspense fallback="loading">
+              <LazyLoad />
+            </Suspense>
+          }
+        />
       </Routes>
     </div>
   );
