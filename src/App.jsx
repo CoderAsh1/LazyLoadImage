@@ -3,6 +3,7 @@ import fetchData from "./fetchData";
 import React, { useState, useEffect, Suspense } from "react";
 import Pagination from "./Components/pagination/Pagination";
 import { Routes, Route, Link } from "react-router-dom";
+import Masonry from "react-masonry-css";
 const LazyLoad = React.lazy(() => import("./Components/lazyload/LazyLoad"));
 
 function App() {
@@ -30,6 +31,12 @@ function App() {
         }, 2000);
   }
 
+  const breakpointColumnsObj = {
+    default: 3,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
   useEffect(() => {
     handleData(query);
   }, [query]);
@@ -56,7 +63,10 @@ function App() {
                 </Link>
               </header>
 
-              <div className="wrapper">
+              <Masonry
+                className="wrapper"
+                breakpointCols={breakpointColumnsObj}
+              >
                 {currentUsers.map((photos, i) => (
                   <img
                     key={i}
@@ -70,7 +80,7 @@ function App() {
                   setCurrentPage={setCurrentPage}
                   postPerPage={postPerPage}
                 />
-              </div>
+              </Masonry>
             </>
           }
         />

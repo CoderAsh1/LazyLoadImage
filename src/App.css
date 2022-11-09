@@ -13,9 +13,7 @@
 }
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+  padding-left: 0.5rem;
 }
 header {
   display: flex;
@@ -25,10 +23,8 @@ header {
   margin-bottom: 3rem;
 }
 img {
-  height: 30rem;
-  width: 24rem;
+  width: 26rem;
   border-radius: 0.4rem;
-  object-fit: cover;
 }
 #search {
   height: 2.4rem;

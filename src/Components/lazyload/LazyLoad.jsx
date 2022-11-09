@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import fetchData from "../../fetchData";
 import "./lazyload.scss";
 import { Link } from "react-router-dom";
+import Masonry from "react-masonry-css";
 
 const LazyLoad = () => {
   const [data, setData] = useState([]);
@@ -17,7 +18,6 @@ const LazyLoad = () => {
       : setTimeout(() => {
           setQuery(e.target.value);
         }, 1200);
-    console.log(query);
   }
 
   // Function on scroll
@@ -33,6 +33,7 @@ const LazyLoad = () => {
       document.documentElement.offsetHeight
     ) {
       page += 1;
+      console.log(query);
       handleDataScroll(query, page);
     }
   };
@@ -43,6 +44,12 @@ const LazyLoad = () => {
     setData(temp);
   }
 
+  const breakpointColumnsObj = {
+    default: 3,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
   useEffect(() => {
     handleData(query, page);
     window.addEventListener("scroll", handleScroll);
@@ -63,11 +70,11 @@ const LazyLoad = () => {
           autoFocus={true}
         />
       </header>
-      <div className="wrapper">
+      <Masonry className="wrapper" breakpointCols={breakpointColumnsObj}>
         {data.map((photos, i) => (
           <img key={i} src={photos.urls.regular} alt={photos.alt_description} />
         ))}
-      </div>
+      </Masonry>
     </div>
   );
 };
