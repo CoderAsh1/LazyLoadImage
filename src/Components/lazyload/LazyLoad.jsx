@@ -24,16 +24,17 @@ const LazyLoad = () => {
   async function handleDataScroll() {
     let temp = await fetchData(query, page);
     let res = [...temp];
+    console.log("fire");
     setData((oldResult) => [...oldResult.concat(...res)]);
   }
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
+      window.innerHeight + document.documentElement.scrollTop >
+      document.documentElement.offsetHeight - 1100
     ) {
       page += 1;
-      console.log(query);
+      console.log("first");
       handleDataScroll(query, page);
     }
   };
@@ -70,9 +71,19 @@ const LazyLoad = () => {
           autoFocus={true}
         />
       </header>
-      <Masonry className="wrapper" breakpointCols={breakpointColumnsObj}>
+      <Masonry
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+        breakpointCols={breakpointColumnsObj}
+      >
         {data.map((photos, i) => (
-          <img key={i} src={photos.urls.regular} alt={photos.alt_description} />
+          <div className="imgContainer">
+            <img
+              key={i}
+              src={photos.urls.regular}
+              alt={photos.alt_description}
+            />
+          </div>
         ))}
       </Masonry>
     </div>

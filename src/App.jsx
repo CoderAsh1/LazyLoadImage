@@ -64,15 +64,18 @@ function App() {
               </header>
 
               <Masonry
-                className="wrapper"
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column"
                 breakpointCols={breakpointColumnsObj}
               >
                 {currentUsers.map((photos, i) => (
-                  <img
-                    key={i}
-                    src={photos.urls.regular}
-                    alt={photos.alt_description}
-                  />
+                  <div className="imgContainer">
+                    <img
+                      key={i}
+                      src={photos.urls.regular}
+                      alt={photos.alt_description}
+                    />
+                  </div>
                 ))}
                 <Pagination
                   data={data}

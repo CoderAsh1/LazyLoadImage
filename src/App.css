@@ -22,10 +22,7 @@ header {
   align-items: center;
   margin-bottom: 3rem;
 }
-img {
-  width: 26rem;
-  border-radius: 0.4rem;
-}
+
 #search {
   height: 2.4rem;
   width: 50%;
@@ -42,4 +39,19 @@ img {
   padding: 0 0.4rem;
   border-radius: 0.4rem;
   border: 1px solid gray;
+}
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex; /* gutter size offset */
+  width: auto;
+  gap: 0.4rem;
+}
+.my-masonry-grid_column {
+  /* gutter size */
+  background-clip: padding-box;
+}
+
+.imgContainer img {
+  width: 100%;
 }
